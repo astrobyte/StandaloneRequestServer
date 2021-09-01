@@ -13,6 +13,7 @@ RUN set -ex; \
 # install the PHP extensions we need
 ENV PHP_MEMORY_LIMIT 512M
 ENV PHP_UPLOAD_LIMIT 512M
+
 RUN set -ex; \
     \
     savedAptMark="$(apt-mark showmanual)"; \
@@ -29,8 +30,8 @@ RUN set -ex; \
     ; \
     \
 # pecl will claim success even if one install fails, so we need to perform each install separately
-    pecl install APCu-5.1.20; \
-    pecl install memcached-3.1.5; \
+    pecl install APCu; \
+    pecl install memcached; \
     \
     docker-php-ext-enable \
         apcu \
@@ -50,7 +51,7 @@ RUN set -ex; \
         | xargs -rt apt-mark manual; \
     \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*;
 
 # set recommended PHP.ini settings
 RUN { \
