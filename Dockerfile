@@ -90,9 +90,7 @@ RUN a2enmod headers rewrite remoteip ;\
     } > /etc/apache2/conf-available/remoteip.conf;\
     a2enconf remoteip
 
-COPY *.php /var/www/html/
-COPY *.inc /var/www/html/
-COPY *.css /var/www/html/
+COPY . /var/www/html/
 COPY entrypoint.sh /
 RUN chmod 777 /entrypoint.sh && chmod +x /entrypoint.sh
 
