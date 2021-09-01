@@ -55,10 +55,10 @@ RUN set -ex; \
         | cut -d: -f1 \
         | sort -u \
         | xargs -rt apt-mark manual; \
-    \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
-    rm -rf /var/lib/apt/lists/*
-
+    rm -rf /var/lib/apt/lists/*; \
+    \
+    
 # set recommended PHP.ini settings
 
 RUN { \
@@ -83,7 +83,8 @@ RUN { \
     copy *.css /var/www/html; \
     rm -rf /var/www/Dockerfile; \
     chown -R www-data:root /var/www; \
-    chmod -R g=u /var/www
+    chmod -R g=u /var/www; \
+    \
 
 VOLUME /var/www/html
 
