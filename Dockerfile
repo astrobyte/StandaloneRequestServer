@@ -94,10 +94,7 @@ COPY entrypoint.sh /
 RUN chmod 777 /entrypoint.sh && chmod +x /entrypoint.sh
 
 VOLUME /var/www/html
-COPY *.php /var/www/html/
-COPY *.inc /var/www/html/
-COPY *.css /var/www/html/
-
+COPY . /var/www/html/
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
