@@ -7,6 +7,7 @@ RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         busybox-static \
+        bzip2 \
     ; \
     rm -rf /var/lib/apt/lists/*; 
 
@@ -22,8 +23,9 @@ RUN set -ex; \
     apt-get install -y --no-install-recommends \
         libcurl4-openssl-dev \
         libicu-dev \
-        zlib-dev \
-    ; \
+        libmcrypt-dev \
+        libzip-dev \
+; \
     \
     debMultiarch="$(dpkg-architecture --query DEB_BUILD_MULTIARCH)"; \
     docker-php-ext-install -j "$(nproc)" \
