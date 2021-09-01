@@ -25,6 +25,8 @@ RUN set -ex; \
         libicu-dev \
         libmcrypt-dev \
         libzip-dev \
+        libmemcached-dev \
+
 ; \
     \
     debMultiarch="$(dpkg-architecture --query DEB_BUILD_MULTIARCH)"; \
