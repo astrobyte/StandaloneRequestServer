@@ -80,9 +80,7 @@ RUN { \
     mkdir /var/www/data; \
     chown -R www-data:root /var/www; \
     chmod -R g=u /var/www
-
-VOLUME /var/www/html
-
+    
 RUN a2enmod headers rewrite remoteip ;\
     {\
      echo RemoteIPHeader X-Real-IP ;\
@@ -92,9 +90,9 @@ RUN a2enmod headers rewrite remoteip ;\
     } > /etc/apache2/conf-available/remoteip.conf;\
     a2enconf remoteip
 
-COPY *.php /var/www/html
-COPY *.inc /var/www/html
-COPY *.css /var/www/html
+COPY *.php /var/www/html/
+COPY *.inc /var/www/html/
+COPY *.css /var/www/html/
 COPY entrypoint.sh /
 RUN chmod 777 /entrypoint.sh && chmod +x /entrypoint.sh
 
