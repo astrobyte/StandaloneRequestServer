@@ -9,7 +9,7 @@ RUN set -ex; \
         busybox-static \
         git \
     ; \
-    rm -rf /var/lib/apt/lists/*; \
+    rm -rf /var/lib/apt/lists/*;
 
 # install the PHP extensions we need
 # see https://docs.nextcloud.com/server/stable/admin_manual/installation/source_installation.html
