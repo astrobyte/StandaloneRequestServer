@@ -22,6 +22,7 @@ RUN set -ex; \
     apt-get install -y --no-install-recommends \
         libcurl4-openssl-dev \
         libicu-dev \
+        zlib-dev \
     ; \
     \
     debMultiarch="$(dpkg-architecture --query DEB_BUILD_MULTIARCH)"; \
