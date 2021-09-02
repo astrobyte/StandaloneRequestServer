@@ -1,7 +1,6 @@
-# DO NOT EDIT: created by update.sh from Dockerfile-debian.template
 FROM php:8.0-apache-bullseye
 
-# entrypoint.sh and cron.sh dependencies
+# entrypoint.sh dependencies
 RUN set -ex; \
     \
     apt-get update; \
@@ -98,5 +97,6 @@ COPY --chown=www-data:www-data *.php /var/www/html/
 COPY --chown=www-data:www-data *.inc /var/www/html/
 COPY --chown=www-data:www-data *.css /var/www/html/
 
+EXPOSE 80
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
