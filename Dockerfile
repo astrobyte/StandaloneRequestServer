@@ -93,7 +93,7 @@ COPY entrypoint.sh /
 RUN chmod 777 /entrypoint.sh && chmod +x /entrypoint.sh
 
 # Create our directory for the database file and set it as writeable
-RUN mkdir -p /var/www/html/data && chown www-data:www-data /var/www/html/data && chmod 0755 /var/www/html/maps
+RUN mkdir -p /var/www/html/data && chown www-data:www-data /var/www/html/data && chmod 0755 /var/www/html/data
 
 
 # Copy files
