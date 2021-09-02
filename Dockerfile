@@ -1,7 +1,6 @@
-# DO NOT EDIT: created by update.sh from Dockerfile-debian.template
 FROM php:8.0-apache-bullseye
 
-# entrypoint.sh and cron.sh dependencies
+# entrypoint.sh dependencies
 RUN set -ex; \
     \
     apt-get update; \
@@ -93,10 +92,18 @@ RUN a2enmod headers rewrite remoteip ;\
 COPY entrypoint.sh /
 RUN chmod 777 /entrypoint.sh && chmod +x /entrypoint.sh
 
-VOLUME /var/www/html
+# Create our directory for the database file and set it as writeable
+RUN mkdir /var/www/data && chmod 755 /var/www/data
+
+# Copy files
 COPY --chown=www-data:www-data *.php /var/www/html/
 COPY --chown=www-data:www-data *.inc /var/www/html/
 COPY --chown=www-data:www-data *.css /var/www/html/
 
+# Expose volumes
+VOLUME /var/www/data
+VOLUME /var/www/html
+
+EXPOSE 80
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
