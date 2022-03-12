@@ -1,0 +1,9 @@
+version: "3"
+services:
+  requestserver:
+    image: digitalsleuth/standalonerequestserver:latest
+    container_name: requestserver
+    ports:
+      - "80:80"
+    environment:
+      - VENUE_NAME=Default Venue
