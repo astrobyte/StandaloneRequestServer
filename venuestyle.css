@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Scada);
-@import url(http://fonts.googleapis.com/css?family=Audiowide);
+@import url(http://fonts.googleapis.com/css?family=Lexend);
 
 body
 {
@@ -90,9 +90,9 @@ input[type=button], input[type=submit], input[type=reset], a.button {
 	left: 5px;
 }
 .title {
-	font-size: 2em;
-	font-family: Audiowide, cursive;
+	font-size: 40px;
+	font-family: 'Lexend', sans-serif;
 	float: right;
 	margin-right: 10px;
-	text-shadow: 4px 4px 4px #aaa;
+	text-shadow: 3px 3px 3px #aaa;
 }
